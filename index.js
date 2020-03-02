@@ -1,17 +1,21 @@
 const express = require("express")
-
 const server = express()
-const port = 4000
+server.use(express.json())
+
+const projectsRouter = require("./routers/projectsRouter");
+const actionsRouter = require("./routers/actionsRouter");
+
+server.use('/api/projects', projectsRouter);
+server.use('/api/actions', actionsRouter);
 
 
-server.get("/", (res, res) => {
-res.send(`<h1>Welcome to the Sprint Project</h1>`) 
-})
-
-
-server.get("/actions", (req, res) => {
+server.get('/', async (req, res)=>{
     res.json({
-        message : "welcome to the Actions API"
+        message: "Sprint Challenge"
     })
 })
 
+
+server.listen(4000, ()=>{
+    console.log(`Hi from Server`);
+})
