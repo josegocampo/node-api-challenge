@@ -67,7 +67,7 @@ router.put('/:id', validateID('project'), async (req, res) =>{
     }
 })
 
-router.delete('/id', validateID('project', async(req, res) =>{
+router.delete('/:id', validateID('project'), async (req, res) =>{
     try{
         res.json(await helpers.remove(req.params.id))
     } catch(err){
@@ -76,7 +76,7 @@ router.delete('/id', validateID('project', async(req, res) =>{
             message: "There was an internal server error"
         })
     }
-}))
+})
 
 
 module.exports = router;

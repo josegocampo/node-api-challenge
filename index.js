@@ -11,11 +11,12 @@ server.use('/api/actions', actionsRouter);
 
 server.get('/', async (req, res)=>{
     res.json({
-        message: "Sprint Challenge"
+        message: "Sprsnt Challenge"
     })
 })
 
 
-server.listen(4000, ()=>{
-    console.log(`Hi from Server`);
+server.listen(4001, ()=>{
+    console.log( `Hi from the server!`
+      );
 })
