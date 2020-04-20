@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const projectsDb = require('../data/helpers/projectModel')
+const actionsDb = require('../data/helpers/actionModel')
 
 
 router.get("/", async (req, res, next) =>{
@@ -83,5 +84,25 @@ router.get("/:id/actions", async (req, res, next) =>{
         next(err)
     }
 })
+
+
+router.post("/:id/actions", async (req, res, next) =>{
+    try{
+            if(!req.body.description || !req.body.notes){
+                res.status(400).json({
+                    errorMessage: "You have to give both an action description and an action notes"
+                })
+            }
+            res.status(201).json(await actionsDb.insert({
+                project_id: req.params.id,
+                description: req.body.description,
+                notes: req.body.notes,
+            }))
+    }
+    catch(err){
+        next(err)
+    }
+})
+
 
 module.exports = router;
