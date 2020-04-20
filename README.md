@@ -40,13 +40,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+Router, Middleware.
+
 - [ ] Describe Middleware?
+
+It is an intermediary that intercepts a certain "flow" and changes the behavior of that "flow" with the set of instructions it provides. It is not specific to Express, React, JavaScript or any language, its just a way of handling flows that can be used in any language.
 
 - [ ] Describe a Resource?
 
+The resource is the target of an HTTP request. It could be, for example a certain path or a query, etc. like api/actions.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+Returns a response with a status message 20X etc.
+
 - [ ] How can we partition our application into sub-applications?
+
+With express.Router, we can divide it up in to different routes, similar to what we do with components in React. Also with middlewares.
 
 ## Minimum Viable Product
 
